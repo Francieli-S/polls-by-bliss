@@ -31,7 +31,7 @@ export const getQuestions = async () => {
   }
 };
 
-//to change later
+//to change later - this call always returns question_id: 1
 const question_id = 5;
 
 export const getOneQuestionDetails = async () => {
@@ -40,6 +40,22 @@ export const getOneQuestionDetails = async () => {
     if (response.status === 200) {
       console.log('QUESTION ID', question_id);
       console.log('QUESTION DETAIL', response.data);
+      return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// to change later - this call always returns question_id: 1
+const body = {}
+
+export const updateQuestion = async () => {
+  try {
+    const response = await axios.put(`${baseURL}/questions/${question_id}`, body);
+    if (response.status === 201) {
+      console.log('UPDATE', body);
+      console.log('UPDATE', response.data);
       return response.data;
     }
   } catch (error) {
