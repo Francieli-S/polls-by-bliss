@@ -30,3 +30,19 @@ export const getQuestions = async () => {
     console.log(error);
   }
 };
+
+//to change later
+const question_id = 5;
+
+export const getOneQuestionDetails = async () => {
+  try {
+    const response = await axios.get(`${baseURL}/questions/${question_id}`);
+    if (response.status === 200) {
+      console.log('QUESTION ID', question_id);
+      console.log('QUESTION DETAIL', response.data);
+      return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
