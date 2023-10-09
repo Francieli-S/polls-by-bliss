@@ -47,7 +47,7 @@ export const getOneQuestionDetails = async () => {
   }
 };
 
-// to change later - this call always returns question_id: 1
+// to change later - this call always returns question_id: 1 and it does not really update a db
 const body = {}
 
 export const updateQuestion = async () => {
@@ -57,6 +57,22 @@ export const updateQuestion = async () => {
       console.log('UPDATE', body);
       console.log('UPDATE', response.data);
       return response.data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// to change later
+let destination_email = 'test@test.com'
+let content_url = 'pageURL'
+
+export const shareQuestion = async () => {
+  try {
+    const response = await axios.post(`${baseURL}/share?destination_email=${destination_email}&content_url=${content_url}`);
+    if (response.status === 200) {
+      console.log('RESPONSE', response.data.status);
+      return response.data.status;
     }
   } catch (error) {
     console.log(error);
