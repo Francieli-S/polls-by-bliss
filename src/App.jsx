@@ -9,8 +9,8 @@ export default function App() {
   return (
     <Routes>
       <Route path='/' element={<LoadingScreen />} />
-      <Route path='/questions?filter=FILTER' element={<QuestionsScreen />} />
-      <Route path='/questions/QUESTION_ID/' element={<DetailScreen />} />
+      <Route path='/questions' element={<QuestionsScreen />} /> {/* replace path later for: '/questions?filter=FILTER' */}
+      <Route path='/questions/:QUESTION_ID/' element={<DetailScreen />} />
       <Route path='/share' element={<ShareScreen />} />
       <Route path='/connectivity' element={<NoConnectivityScreen />} />
     </Routes>
